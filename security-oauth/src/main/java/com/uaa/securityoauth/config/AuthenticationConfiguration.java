@@ -84,7 +84,7 @@ public class AuthenticationConfiguration extends AuthorizationServerConfigurerAd
                 .withClient("c1")
                 .secret("secret")
 //                .resourceIds("r1")
-                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
+                .authorizedGrantTypes("password", "authorization_code", "refresh_token","client_credentials")
                 .scopes("all")
                 .autoApprove(false)// false 跳转到授权页面
                 .redirectUris("https://baidu.com/");
