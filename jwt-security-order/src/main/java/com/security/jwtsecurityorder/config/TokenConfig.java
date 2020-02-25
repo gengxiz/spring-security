@@ -1,4 +1,4 @@
-package com.uaa.securityoauth.config;
+package com.security.jwtsecurityorder.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,16 +12,16 @@ public class TokenConfig {
 
     private final String SIGNING_KEY="uaa123";
     /**
-      * 内存的形式
-      * 令牌存储策略
-      **/
+     * 内存的形式
+     * 令牌存储策略
+     **/
 //    @Bean
 //    public TokenStore tokenStore(){
 //        return new InMemoryTokenStore();
 //    }
     /**
-      * jwt 令牌
-      **/
+     * jwt 令牌
+     **/
     @Bean
     public TokenStore tokenStore(){
         return new JwtTokenStore(accessTokenConverter());

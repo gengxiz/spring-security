@@ -18,8 +18,12 @@ import org.springframework.security.oauth2.provider.code.AuthorizationCodeServic
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import java.util.Collections;
 
 @Configuration
 @EnableAuthorizationServer
@@ -37,6 +41,9 @@ public class AuthenticationConfiguration extends AuthorizationServerConfigurerAd
     @Autowired
     private AuthorizationCodeServices authorizationCodeServices;
 
+    @Autowired
+    private JwtAccessTokenConverter accessTokenConverter;
+
     @Bean
     public AuthorizationCodeServices authorizationCodeServices(){
         return new InMemoryAuthorizationCodeServices();
@@ -47,6 +54,12 @@ public class AuthenticationConfiguration extends AuthorizationServerConfigurerAd
         DefaultTokenServices services = new DefaultTokenServices();
         services.setClientDetailsService(clientDetailsService);// 客户端信息服务
         services.setTokenStore(tokenStore);//令牌存储策略
+
+        // 添加令牌的转换逻辑
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Collections.singletonList(accessTokenConverter));
+        services.setTokenEnhancer(tokenEnhancerChain);
+
         services.setSupportRefreshToken(true);
         services.setAccessTokenValiditySeconds(2 * 3600);//令牌有效期2小时
         services.setRefreshTokenValiditySeconds(7 * 24 * 3600);//刷新令牌默认有效期
