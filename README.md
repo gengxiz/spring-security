@@ -2,6 +2,22 @@
 ###### 1，这个项目是看了B站，av73730658，自己借鉴写的代码<br/>
 ###### 2，当时写了很久，才写出来的，果然还是太菜了<br/>
 
+### 流程图
+
+###### 1，security 过滤图
+![alt](images/security.png) <br/>
+
+![alt](images/security2.png) <br/>
+
+###### 2，认证流程图
+![alt](images/auth.png) <br/>
+
+###### 3，授权投票
+![alt](images/authori.png) <br/>
+
+###### 4，授权uml 图
+![alt](images/accessdecis.png) <br/>
+
 ### 项目演示
 ###### 3，当clone 代码后，需要将子项目导入到父项目的模块中，如图<br/>
 ![alt](images/module.png) <br/>
@@ -31,6 +47,9 @@ localhost:8080/oauth/check_token <br/>
 localhost:8081/r/order_resource <br/>
 ![alt](images/access_resource.png)
 
+###### 11，带jwt令牌访问资源  ，url <br/>
+localhost:8081/r/jwt_order_resource <br/>
+![alt](images/jwt_check_token.png)
 
 
 
