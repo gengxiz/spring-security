@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected UserDetailsService userDetailsService(){
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("xiaosu").password("123").authorities("vip1").build());
+        manager.createUser(User.withUsername("xiaosu").password("123").authorities("vip1","vip3").build());
         return manager;
     }
 

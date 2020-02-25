@@ -70,7 +70,7 @@ public class AuthenticationConfiguration extends AuthorizationServerConfigurerAd
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("permitAll()")
+                .checkTokenAccess("permitAll()")// 允许访问checktoken
                 .allowFormAuthenticationForClients();//表单认证
     }
 
@@ -83,7 +83,7 @@ public class AuthenticationConfiguration extends AuthorizationServerConfigurerAd
         clients.inMemory()
                 .withClient("c1")
                 .secret("secret")
-//                .resourceIds("r1")
+                .resourceIds("order_resource")
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token","client_credentials")
                 .scopes("all")
                 .autoApprove(false)// false 跳转到授权页面
