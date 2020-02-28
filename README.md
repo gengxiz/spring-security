@@ -1,6 +1,7 @@
 ### 项目介绍
 ###### 1，这个项目是看了B站，av73730658，自己借鉴写的代码<br/>
 ###### 2，当时写了很久，才写出来的，果然还是太菜了<br/>
+###### 3，springcloud 实现分布式授权例子：https://github.com/gengxiz/distributed-security.git<br/>
 
 ### 流程图
 
