@@ -7,5 +7,6 @@ public class Client {
         String encode = new BCryptPasswordEncoder().encode("123");
         System.out.println(encode);
         System.out.println("dev");
+        System.out.println("two");
     }
 }
