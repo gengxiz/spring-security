@@ -8,5 +8,6 @@ public class Client {
         System.out.println(encode);
         System.out.println("dev");
         System.out.println("two");
+        System.out.println("admin");
     }
 }
